@@ -1,11 +1,10 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import cardsCollection from './test-data/mockCardsData.json';
 @Component({
-  selector: 'app-scrolling-gallery',
-  standalone: true,
-  imports: [],
-  templateUrl: './scrolling-gallery.component.html',
-  styleUrl: './scrolling-gallery.component.css'
+    selector: 'app-scrolling-gallery',
+    imports: [],
+    templateUrl: './scrolling-gallery.component.html',
+    styleUrl: './scrolling-gallery.component.css'
 })
 export class ScrollingGalleryComponent implements AfterViewInit {
   cardsList:any[];
