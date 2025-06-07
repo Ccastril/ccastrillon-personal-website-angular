@@ -1,0 +1,60 @@
+<div class="row row-cols-1 row-cols-md-2">
+    @for(card of cardsList; track $index) {
+        <div class="col mb-4 h-100" >
+            <div class="card m-3 shadow">
+                <img class="card-img-top" src={{card.cardImgUrl}}>
+                <div class="collapse">
+                    <div class="card-body" data-toggle="collapse" data-target="#collapseOne" ngModel #cardBodyControl
+                        aria-expanded="true">
+                        <h2 class="card-title">{{card.cardTitle}}</h2>
+                        <p class="card-text">{{card.cardBody}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+    
+
+
+
+<!-- <div class="container-fluid mx-0" id="listContainer">
+    <ul class="list-group list-group-horizontal" id="listGroup">
+        @for (card of cardsList; track $index) {
+            <li class="list-group-item px-1" ngModel #listGroupItem>
+                <div class="card shadow">
+                    <img class="card-img-top" src="/assets/mmdbanking-screenshot.png">
+                        <div class="collapse">
+                            <div class="card-body" data-toggle="collapse" data-target="#collapse" ngModel #cardBodyControl >
+                                <h2 class="card-title">{{card.cardTitle}}</h2>
+                                <p class="card-text">{{card.cardBody}}</p>
+                            </div>
+
+                        </div>
+                       
+    
+                </div>
+            </li>
+
+        }
+       
+     <li class="list-group-item px-1">
+            <div class="card shadow">
+                <img class="card-img-top" src="/assets/mmdbanking-screenshot.png">
+                <div class="card-body">
+                    <h2 class="card-title">Card Title</h2>
+                    <p class="card-text">This is application x, built using tehse front end and these back end technologoies</p>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item px-1">
+            <div class="card shadow">
+                <img class="card-img-top" src="/assets/mmdbanking-screenshot.png">
+                <div class="card-body">
+                    <h2 class="card-title">Card Title</h2>
+                    <p class="card-text">This is application x, built using tehse front end and these back end technologoies</p>
+                </div>
+            </div>
+        </li> -->
+<!-- </ul>
+</div> -->

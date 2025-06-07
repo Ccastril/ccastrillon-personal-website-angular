@@ -1,0 +1,18 @@
+[
+    {
+        "cardTitle":"iPurchase",
+        "cardBody":"this is the card body, this contains the text for each website on display in the list. It will contain brief information about the tech stack used to create the information system presented",
+        "cardImgUrl":"/assets/ipurchase.png"
+    },
+    {
+        "cardTitle":"Subscription Management System",
+        "cardBody":"this is the card body, this contains the text for each website on display in the list. It will contain brief information about the tech stack used to create the information system presented",
+        "cardImgUrl":"/assets/mmdbanking-screenshot.png"
+    },
+
+    {
+        "cardTitle":"MMD Banking App",
+        "cardBody":"this is the card body, this contains the text for each website on display in the list. It will contain brief information about the tech stack used to create the information system presented",
+        "cardImgUrl":"/assets/mmdbanking-screenshot.png"
+    }
+]

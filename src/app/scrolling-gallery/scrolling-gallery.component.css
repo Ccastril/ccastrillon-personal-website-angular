@@ -1,0 +1,53 @@
+/* 
+@keyframes infiniteScroll {
+    from {transform:translateX(0) }
+    to {transform:translateX(calc(0px - 50%));}
+}
+
+#listContainer {
+    width:100%;
+    overflow-x: hidden;
+
+}
+.list-group-item {
+    min-width: 800px;
+    background: rgb(243, 242, 240);
+    border:0;
+    text-wrap:wrap;
+    
+   
+}
+
+
+#listGroup {
+    white-space: nowrap;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    animation-name: infiniteScroll;
+    animation-duration: 25s;
+    animation-iteration-count: infinite;
+    animation-timing-function:linear;
+}
+#listGroup:hover {
+    animation-play-state: paused;
+
+}
+
+
+
+*/
+.card {
+    border-radius: 0;
+    border:0;
+}
+.card-img-top {
+    border-radius:0;
+    border-top:0;
+}
+
+.card:hover {
+    .collapse {
+        display: inline-block;
+    }
+} 
