@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import cardsCollection from './test-data/data-loader.json';
 
 @Component({
     selector: 'app-professional-experience',
@@ -7,5 +8,11 @@ import { Component } from '@angular/core';
     styleUrl: './professional-experience.component.css'
 })
 export class ProfessionalExperienceComponent {
-
+    cardsList:any[];
+    constructor(){
+        this.cardsList = cardsCollection
+    }
+    goToLink =(url: string):any => { 
+        window.open(url)
+    }
 }

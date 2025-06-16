@@ -1,0 +1,16 @@
+<div class="row row-cols-1 row-cols-md-2">
+    @for(card of cardContents; track $index) {
+         <div class="col my-2">
+        <div class="container">
+               <div class="card shadow">
+                <div class="card-body">
+                    <img src={{card.image}} class="img-fluid">
+                        <h2>{{card.title}}</h2>
+                        <p>Issuance Date: {{card.date}}</p>
+                        <p>Expiration Date: {{card.expiration}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    }
+</div>

@@ -1,0 +1,58 @@
+[
+ {  
+    "title": "Software Engineer II",
+    "company": "Infosys",
+    "client": "North Western Mutual",
+    "location": {
+        "city": "Hartford",
+        "state": "CT"
+    },
+    "remote": true,
+    "startDate": "Just 2024",
+    "endDate": "present",
+    "body": [
+        "Lead NodeJS API developer modernizing legacy mainframe system onto AWS.",
+        "Spearheaded migration of MySQL databases in AWS Cloud with AWS Database Migration Service.",
+        "Documented and established best practices for Terraform infrastructure and query configuration.",
+        "Lead communication with the Enterprise Data Migration team to ensure data migration success."
+    ]
+ },
+ {  
+    "title": "Software Engineer I",
+    "company": "Infosys",
+    "client": "The Travelers Insurance",
+    "location": {
+        "city": "Hartford",
+        "state": "CT"
+    },
+    "remote": true,
+    "startDate": "May 2021",
+    "endDate": "December 2023",
+    "body": [
+        "Revamped Java Spring Boot applications into AWS cloud-native applications deployed in production for The Travelers Insurance until December 2023.",
+        "Developed, documented, and integrated JavaScript AWS Lambda functions with various APIs, databases, and AWS cloud services and created comprehensive internal testing documentation, providing a knowledge base for all ongoing projects.",
+        "Automated multi-region infrastructure provisioning and management using Terraform for AWS Lambda functions, KMS keys, and DynamoDB tables, improving resilience and data accessibility.",
+        "Implemented monitoring and alerting for JavaScript AWS Lambda Functions with flexible JSON ElasticSearch queries and email alerts, uncovering a critical dependency issue impacting 50% of billing communication emails.",
+        "Earned two peer-nominated awards for streamlining team member onboarding through comprehensive documentation, daily check-ins, and structured pair programming.",
+        "Transitioned, updated and debugged Angular 11 clients to Angular 17."
+    ]
+ },
+ {  
+    "title": "Software Engineer",
+    "company": "Revature",
+    "client": "",
+    "location": {
+        "city": "Reston",
+        "state": "VA"
+    },
+    "remote": true,
+    "startDate": "August 2020",
+    "endDate": "May 2021",
+    "body": [
+       "Designed, created, and tested three RESTful Java Full Stack apps with Angular 11 clients and BootStrap 4 design, coupled with Spring Boot servers utilizing Spring Data JPA for data persistence in PostgreSQL databases.",
+       "Configured PostgreSQL tables on Amazon RDS and set up servers on Amazon EC2 to enhance scalability and ensure public access to web applications.",
+       "Revamped CI/CD practices by configuring Jenkinsfile and GitHub webhooks to automate testing, SonarQube code coverage, and application build and deployment processes.",
+       "Conducted automated integration testing using Selenium WebDriver."
+    ]
+ }
+]

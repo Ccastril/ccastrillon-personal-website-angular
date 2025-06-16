@@ -11,18 +11,12 @@ export class ScrollingGalleryComponent implements AfterViewInit {
   constructor() {
     this.cardsList = cardsCollection;
   }
-  
   @ViewChild('cardBodyControl')card:ElementRef<HTMLElement> | undefined
   ngAfterViewInit() {
-    console.log(this.card);
-    setTimeout(()=> {
-      // console.log(this.card?.nativeElement.getBoundingClientRect());
-      // console.log(this.card?.nativeElement.getAttributeNode('data-bs-toggle'));
-      // console.log(this.card?.nativeElement.getAttribute('class'));
-      // this.card?.nativeElement.setAttribute('class', 'card-body show');
-
-    }, 1000);
-    
+  
+  }
+  goToLink = (url:string):void => {
+    window.open(url)
   }
 
 }

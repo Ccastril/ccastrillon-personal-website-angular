@@ -1,15 +1,18 @@
-<div class="row row-cols-1 row-cols-md-2">
+<div class="row row-cols-1 row-cols-md-2" id="mainContainer">
     @for(card of cardsList; track $index) {
-        <div class="col mb-4 h-100" >
-            <div class="card m-3 shadow">
+        <div class="col my-3 h-100" >
+            <div class="card shadow" id="card">
                 <img class="card-img-top" src={{card.cardImgUrl}}>
-                <div class="collapse">
-                    <div class="card-body" data-toggle="collapse" data-target="#collapseOne" ngModel #cardBodyControl
-                        aria-expanded="true">
+                    <div class="card-body" ngModel #cardBodyControl aria-expanded="true">
                         <h2 class="card-title">{{card.cardTitle}}</h2>
                         <p class="card-text">{{card.cardBody}}</p>
+                       <div class="container" id="cardButtonGroup">
+                        <button type="button" class="btn btn-light" (click)="goToLink(`${card.clientUrl}`)" >Client</button>
+                        @if(card.serverUrl != null) {
+                            <button type="button" class="btn btn-light" (click)="goToLink(`${card.serverUrl}`)">Server</button>   
+                        }
+                       </div>
                     </div>
-                </div>
             </div>
         </div>
     }

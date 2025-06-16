@@ -1,0 +1,15 @@
+<div class="row row-cols-1 row-cols-md-1">
+    @for(card of cardContents; track $index){
+    <div class="col mx-2 my-2">
+        <div class="card shadow">
+            <div class="card-body">
+                <h1>{{card.institution}}</h1>
+                <h3>Degree: {{card.degree}}</h3>
+                <p>Graduation Date: {{card.date}}</p>
+                <p>Location: {{card.location}}</p>
+                
+            </div>
+        </div>
+    </div>
+    }
+</div>
