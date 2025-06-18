@@ -20,12 +20,14 @@ pipeline {
         }
         stage("Prepare") {
             steps {
-                sh "npm install aws-sdk"
+                sh "npm install -g yarn"
+                sh "yarn install"
+                sh "yarn add aws-sdk"
             }
         }
         stage("Build") {
             steps {
-                sh "ng build"
+                sh "yarn build"
             }
         }
         stage("Deploy to AWS") {
