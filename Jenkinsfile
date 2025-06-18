@@ -1,6 +1,9 @@
 
 pipeline {
     agent any
+    options {
+        skipDefaultCheckout(true)
+    }
     environment {
         bucket = "sde-portfolio-client"
         region = "us-east-1"
@@ -20,6 +23,7 @@ pipeline {
         }
         stage("Prepare") {
             steps {
+                cleanWs()
                 sh "npm install -g yarn"
                 sh "yarn install"
                 sh "yarn add aws-sdk"
@@ -62,6 +66,17 @@ pipeline {
                         """
                     }
                 }
+            }
+        }
+        post {
+            // Clean after build
+            always {
+                cleanWs(cleanWhenNotBuilt: false,
+                        deleteDirs: true,
+                        disableDeferredWipeout: true,
+                        notFailBuild: true,
+                        patterns: [[pattern: '.gitignore', type: 'INCLUDE'],
+                                [pattern: '.propsfile', type: 'EXCLUDE']])
             }
         }
     }
