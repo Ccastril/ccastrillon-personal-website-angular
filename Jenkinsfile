@@ -4,6 +4,9 @@ pipeline {
     options {
         skipDefaultCheckout(true)
     }
+    tools {
+        nodejs('node')
+    }
     environment {
         bucket = "sde-portfolio-client"
         region = "us-east-1"
@@ -24,6 +27,7 @@ pipeline {
         stage("Prepare") {
             steps {
                 cleanWs()
+                sh "npm version"
                 sh "npm install"
                 sh "npm install aws-sdk"
             }
