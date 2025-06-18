@@ -8,11 +8,6 @@ pipeline {
         bucket = "sde-portfolio-client"
         region = "us-east-1"
     }
-
-    tools {
-        nodejs "node"
-    }
-
     stages {
         stage("Environment Setup") {
             steps {
@@ -21,17 +16,21 @@ pipeline {
                 }
             }
         }
+        stage("Checkout") {
+            steps {
+                checkout scm
+            }
+        }
         stage("Prepare") {
             steps {
                 cleanWs()
-                sh "npm install -g yarn"
-                sh "yarn install"
-                sh "yarn add aws-sdk"
+                sh "npm install"
+                sh "npm install aws-sdk"
             }
         }
         stage("Build") {
             steps {
-                sh "yarn build"
+                sh "npm run build"
             }
         }
         stage("Deploy to AWS") {
