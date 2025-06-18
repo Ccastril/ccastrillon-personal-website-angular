@@ -26,7 +26,6 @@ pipeline {
         }
         stage("Prepare") {
             steps {
-                cleanWs()
                 sh "npm version"
                 sh "npm install"
                 sh "npm install aws-sdk"
