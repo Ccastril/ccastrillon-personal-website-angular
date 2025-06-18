@@ -1,27 +1,65 @@
 pipeline {
     agent any
+    environment {
+        bucket = "sde-portfolio-client"
+        region = "us-east-1"
+    }
+
     tools {
         nodejs "node"
     }
+
     stages {
-        stage('Build') {
+        stage("Environment Setup") {
             steps {
-                sh 'ls'
-                sh 'npm install'
-                sh 'echo N | ng analytics off'
-                sh 'ng build'
-                sh 'ls'
-                sh 'cd dist && ls'
-                sh 'cd dist/ccastrillon-personal-website-angular/browser && ls'
+                script {
+                    echo "Bucket set to: ${bucket}"
+                }
             }
         }
-        stage('S3 Upload') {
+        stage("Prepare") {
             steps {
-                withAWS(region: 'us-east-1', credentials: 'AKIAXWJZXHA7BR2RJUHG') {
-                    sh 'ls -la'
-                    sh 'aws s3 cp dist/ccastrillon-personal-website-angular/browser/. s3://sde-portfolio-client/ --recursive' 
+                sh "npm install aws-sdk"
+            }
+        }
+        stage("Build") {
+            steps {
+                sh "ng build"
+            }
+        }
+        stage("Deploy to AWS") {
+            steps {
+                script {
+                    withAWS(region: "${region}", credentials: "AKIAXWJZXHA7BR2RJUHG") {
+                        s3Upload(bucket: "${bucket}" includePathPattern: '**/*', workingDir: 'dist/ccastrillon-personal-website-angular/browser', excludePathPattern: '**/node_modules')
+                    }
                 }
-
+                script {
+                    withAWS(region: "${region}", credentials: "AKIAXWJZXHA7BR2RJUHG") {
+                        sh """
+                        node -e "const AWS = require('aws-sdk');
+                        const cloudfront = new AWS.CloudFront();
+                        const params = {
+                            DistributionId: '{params.distribution_id}',
+                            InvalidationBatch: {
+                                CallerReference: String(Date.now()),
+                                Paths: {
+                                    Quantity: 1,
+                                    Items:['/*]
+                                }
+                            }
+                        };
+                        cloudfront.createInvalidation(params, (err, data) => {
+                            if (err) {
+                                console.error('Error creating CloudFront Invalidation:', err);
+                            } else {
+                                console.log('Successfully created CloudFront Invalidation:', data);
+                            }
+                        
+                        });"
+                        """
+                    }
+                }
             }
         }
     }
