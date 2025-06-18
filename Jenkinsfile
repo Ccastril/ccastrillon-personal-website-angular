@@ -9,7 +9,7 @@ pipeline {
                 sh 'ng build'
                 sh 'ls'
                 sh 'cd dist && ls'
-                sh 'cds dist/ccastrillon-personal-website-angular/browser && ls'
+                sh 'cd dist/ccastrillon-personal-website-angular/browser && ls'
             }
         }
         stage('S3 Upload') {
