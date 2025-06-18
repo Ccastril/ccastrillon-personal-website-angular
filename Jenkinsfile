@@ -32,7 +32,7 @@ pipeline {
             steps {
                 script {
                     withAWS(region: "${region}", credentials: 'AKIAXWJZXHA7BR2RJUHG') {
-                        s3Upload(bucket: "${bucket}" includePathPattern: '**/*', workingDir: 'dist/ccastrillon-personal-website-angular/browser', excludePathPattern: '**/node-modules')
+                        s3Upload(bucket: "${bucket}", includePathPattern: '**/*', workingDir: 'dist/ccastrillon-personal-website-angular/browser', excludePathPattern: '**/node-modules')
                     }
                 }
                 script {
