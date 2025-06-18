@@ -1,3 +1,4 @@
+
 pipeline {
     agent any
     environment {
@@ -30,17 +31,17 @@ pipeline {
         stage("Deploy to AWS") {
             steps {
                 script {
-                    withAWS(region: "${region}", credentials: "AKIAXWJZXHA7BR2RJUHG") {
-                        s3Upload(bucket: "${bucket}" includePathPattern: '**/*', workingDir: 'dist/ccastrillon-personal-website-angular/browser', excludePathPattern: '**/node_modules')
+                    withAWS(region: "${region}", credentials: 'AKIAXWJZXHA7BR2RJUHG') {
+                        s3Upload(bucket: "${bucket}" includePathPattern: '**/*', workingDir: 'dist/ccastrillon-personal-website-angular/browser', excludePathPattern: '**/node-modules')
                     }
                 }
                 script {
-                    withAWS(region: "${region}", credentials: "AKIAXWJZXHA7BR2RJUHG") {
+                    withAWS(region: "${region}", credentials: 'AKIAXWJZXHA7BR2RJUHG') {
                         sh """
                         node -e "const AWS = require('aws-sdk');
                         const cloudfront = new AWS.CloudFront();
                         const params = {
-                            DistributionId: '{params.distribution_id}',
+                            DistributionId: '${params.distribution_id}',
                             InvalidationBatch: {
                                 CallerReference: String(Date.now()),
                                 Paths: {
@@ -55,7 +56,6 @@ pipeline {
                             } else {
                                 console.log('Successfully created CloudFront Invalidation:', data);
                             }
-                        
                         });"
                         """
                     }
