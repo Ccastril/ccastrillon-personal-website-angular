@@ -27,13 +27,14 @@ pipeline {
         stage("Prepare") {
             steps {
                 sh "npm version"
-                sh "npm install"
-                sh "npm install @aws-sdk/client-s3"
+                sh "npm install -g yarn"
+                sh "yarn install"
+                sh "yarn add @aws-sdk/client-s3"
             }
         }
         stage("Build") {
             steps {
-                sh "npm run build"
+                sh "yarn build"
             }
         }
         stage("Deploy to AWS") {
